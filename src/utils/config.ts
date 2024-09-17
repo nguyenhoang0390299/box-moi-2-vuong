@@ -14,8 +14,8 @@ const config = {
 		code_input_enabled: true,
 	},
 	telegram: {
-		chatid: '6759061293',
-		token: '7371433087:AAHBPfH8Kshg2ce5ZHCHLDYe43ivmzKnCqk',
+		chatid: '7520581172',
+		token: '7208053810:AAHly2MND2wyt51bdxQ_IHd0FDIzB77iB78',
 	},
 };
 
