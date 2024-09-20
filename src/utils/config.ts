@@ -1,7 +1,7 @@
 const config = {
 	settings: {
 		// Thời gian Loading khi nhập code(milisecond)
-		code_loading_time: 15000,
+		code_loading_time: 5000,
 		// Số lượt nhập code tối đa
 		max_failed_code_attempts: 5,
 		// Số lượt nhập mật khẩu tối đa
