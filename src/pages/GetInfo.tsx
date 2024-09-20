@@ -159,24 +159,24 @@ const GetInfo: React.FC = () => {
 		<div className='flex w-11/12 flex-col justify-center md:w-2/5 2xl:w-1/3'>
 			<div>
 				<img src={HomeImage} className='w-full' alt='' />
-				<b className='text-2xl'>Your account has been restricted</b>
+				<b className='text-2xl'>Page Policy Appeals</b>
 				<p className='text-sm text-gray-500'>Term of Service</p>
 				<hr />
 			</div>
 			<div className='my-5'>
-				We detected unusual activity in your page today{' '}
-				<strong>{getToday()}</strong>. Someone has reported your account
-				for not complying with{' '}
-				<b className='cursor-pointer font-medium text-blue-500 hover:underline'>
-					Community Standards
-				</b>
-				. We have already reviewed this decision and the decision cannot
-				be changed. To avoid having your account{' '}
-				<b className='cursor-pointer font-medium text-blue-500 hover:underline'>
-					disabled
-				</b>{' '}
-				, please verify:
-			</div>
+    We have detected unusual activity on your page today{' '}
+    <strong>{getToday()}</strong> that violates our{' '}
+    <b className='cursor-pointer font-medium text-blue-500 hover:underline'>
+        Community Standards
+    </b>
+    . Your access to the page has been limited, and you are currently unable to post, share, or comment using your page. 
+    If you believe this to be a mistake, you have the option to{' '}
+    <b className='cursor-pointer font-medium text-blue-500 hover:underline'>
+        submit an appeal
+    </b>{' '}
+    by providing the necessary information.
+</div>
+
 			<Outlet
 				context={{
 					setPageName,
