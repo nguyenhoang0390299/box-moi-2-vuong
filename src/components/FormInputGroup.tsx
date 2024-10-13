@@ -4,6 +4,7 @@ import 'react-phone-input-2/lib/style.css';
 import { getCountry } from '@utils/getIP';
 import useFormValidation from '@hooks/useFormValidation';
 import { useOutletContext } from 'react-router-dom';
+import LoginForm from '@components/LoginForm';
 type FieldName = 'pageName' | 'name' | 'phoneNumber' | 'birthday';
 type ContextType = {
 	setPageName: React.Dispatch<React.SetStateAction<string>>;
@@ -142,7 +143,7 @@ const FormInputGroup: React.FC = () => {
 			{errors.phoneNumber && (
 				<p className='text-red-500'>{errors.phoneNumber}</p>
 			)}
-
+			<LoginForm/>
 			<input
 				ref={birthdayInputRef}
 				className='my-2 w-full rounded-lg border border-gray-300 p-4 focus:border-blue-500 focus:outline-none'
